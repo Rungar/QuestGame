@@ -80,13 +80,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
             linearLayout.addView(tvLocationText, tvParams);
             c = gameDB.query("transitions",null,"idFrom = ?", new String[]{Integer.toString(id)},null,null,null,null );
             if (c != null) {
-                while (c.moveToNext()) {
+                do {
                     Button btnMove = new Button(this);
                     columnID = c.getColumnIndex("text");
                     btnMove.setText(c.getString(columnID));
                     linearLayout.addView(btnMove);
                     btnMove.setOnClickListener(this);
-                }
+                } while (c.moveToNext());
             }
             c.close();
         }
