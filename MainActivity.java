@@ -71,7 +71,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         ViewGroup.LayoutParams tvParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         while (id < 400) {
-            c = gameDB.query("locations", null, "id = ?", new String[]{Integer.toString(id)},null,null,null,null );
+            c = gameDB.query("locations", null, "_id = ?", new String[]{Integer.toString(id)},null,null,null,null );
             columnID = c.getColumnIndex("text");
             text = c.getString(columnID);
             c.close();
